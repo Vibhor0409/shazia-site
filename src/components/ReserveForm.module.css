@@ -1,0 +1,61 @@
+.compact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.compact .field {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.full {
+  display: grid;
+  gap: 16px;
+  max-width: 440px;
+}
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.field input {
+  font: inherit;
+  font-size: 16px;
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+  color: var(--harbour);
+  border-radius: 2px;
+}
+.field input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-color: var(--gold);
+}
+.field input[aria-invalid="true"] {
+  border-color: var(--flush);
+}
+.note,
+.error {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 13px;
+}
+.note {
+  color: var(--muted);
+}
+.error {
+  color: var(--flush);
+}
+.trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local waitlist data
+.data/
+
+# secrets
+waitlist-apps-script/Code.gs
+waitlist-apps-script/.clasp.json

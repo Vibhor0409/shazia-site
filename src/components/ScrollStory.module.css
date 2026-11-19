@@ -1,0 +1,204 @@
+.story {
+  position: relative;
+}
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  margin-bottom: -100svh;
+  background: radial-gradient(120% 90% at 70% 40%, #f7faf9 0%, var(--seaglass) 45%, var(--mist) 100%);
+  z-index: 0;
+}
+.stage canvas {
+  display: block;
+}
+.poster {
+  position: absolute;
+  inset: 14% 4% 14% 42%;
+  pointer-events: none;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.poster[data-hidden="true"] {
+  opacity: 0;
+}
+.posterImg {
+  object-fit: contain;
+  filter: drop-shadow(0 24px 28px rgb(31 63 71 / 0.18));
+}
+@media (max-width: 760px) {
+  .poster {
+    inset: 10% 8% 52% 8%;
+  }
+}
+.chapter {
+  position: relative;
+  z-index: 2;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-inline: clamp(16px, 6vw, 96px);
+}
+.copy {
+  max-width: 460px;
+  display: grid;
+  gap: 14px;
+  padding: 28px 30px;
+  background: color-mix(in srgb, var(--seaglass) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  backdrop-filter: blur(8px);
+  transform: translateY(14px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.copy[data-on="true"] {
+  transform: none;
+}
+.h1 {
+  font-size: clamp(38px, 5.4vw, 66px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.h2 {
+  font-size: clamp(30px, 3.8vw, 46px);
+  line-height: 1.08;
+}
+.copy p {
+  max-width: 40ch;
+}
+.spec {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  font-size: 14px;
+}
+.spec div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+}
+.spec dt {
+  color: var(--gold-deep);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 11px;
+  padding-top: 3px;
+}
+.spec dd {
+  margin: 0;
+}
+.designs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dz {
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, #fff 50%, transparent);
+  color: var(--harbour);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.dz[aria-pressed="true"] {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: var(--seaglass);
+}
+.callout {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.35s;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  white-space: nowrap;
+}
+.callout[data-on="true"] {
+  opacity: 1;
+}
+.callout[data-side="left"] {
+  flex-direction: row-reverse;
+}
+.callout i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: color-mix(in srgb, var(--seaglass) 60%, transparent);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--gold) 15%, transparent);
+}
+.callout b {
+  font-weight: 500;
+  background: color-mix(in srgb, var(--porcelain) 88%, transparent);
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+}
+.dots {
+  position: fixed;
+  right: clamp(12px, 2.4vw, 32px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.dots button {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+.dots button::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background 0.3s, transform 0.3s;
+}
+.dots button[aria-current="true"]::after {
+  background: var(--teal);
+  transform: scale(1.5);
+}
+@media (max-width: 760px) {
+  .chapter {
+    align-items: flex-end;
+    padding-bottom: 10svh;
+  }
+  .copy {
+    padding: 18px;
+  }
+  .dots {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .copy,
+  .callout {
+    transition: none;
+  }
+}

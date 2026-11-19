@@ -1,0 +1,118 @@
+.nav {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-inline: var(--gutter);
+  transition: background-color 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.nav[data-scrolled="true"] {
+  background: color-mix(in srgb, var(--seaglass) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--line);
+}
+.mark {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 28px;
+  color: var(--teal);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.links {
+  display: flex;
+  gap: 32px;
+}
+.links a {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-block: 6px;
+  border-bottom: 1px solid transparent;
+}
+.links a:hover,
+.links a[aria-current="page"] {
+  border-bottom-color: var(--gold);
+}
+.right {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 8px;
+}
+.menu {
+  display: none;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  place-items: center;
+}
+.bars,
+.bars::before,
+.bars::after {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--teal);
+  position: relative;
+  transition: transform 0.25s;
+}
+.bars::before,
+.bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.bars::before {
+  top: -7px;
+}
+.bars::after {
+  top: 7px;
+}
+.bars[data-open="true"] {
+  background: transparent;
+}
+.bars[data-open="true"]::before {
+  transform: translateY(7px) rotate(45deg);
+}
+.bars[data-open="true"]::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.panel {
+  position: fixed;
+  inset: 72px 0 0 0;
+  background: var(--teal);
+  padding: 32px var(--gutter);
+}
+.panel nav {
+  display: grid;
+  gap: 20px;
+}
+.panel a {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 36px;
+  color: var(--on-teal);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .links {
+    display: none;
+  }
+  .menu {
+    display: grid;
+  }
+  .right :global(.btn) {
+    padding-inline: 16px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,175 @@
+.steps {
+  display: grid;
+  gap: 28px;
+}
+.step {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+  padding: 20px 0 0;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+.step legend {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 26px;
+  color: var(--teal);
+  padding: 0;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.step legend span {
+  font-size: 18px;
+  color: var(--gold);
+}
+.step legend em {
+  font-family: var(--font-body), sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--muted);
+}
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.option {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+  cursor: pointer;
+  min-height: 64px;
+}
+.option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.option:has(input:focus-visible) {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.option[data-on="true"] {
+  border-color: var(--gold);
+  box-shadow: inset 0 0 0 1px var(--gold);
+}
+.option b {
+  font-weight: 500;
+}
+.option span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+.swatch[data-metal="yellow"] {
+  background: linear-gradient(135deg, #f6dea6, #c9a056);
+}
+.swatch[data-metal="rose"] {
+  background: linear-gradient(135deg, #f7d3c2, #c98a72);
+}
+.sizeRow {
+  display: flex;
+  gap: 8px;
+}
+.sizeRow input,
+.text {
+  font: inherit;
+  font-size: 16px;
+  flex: 1;
+  min-width: 0;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+  color: var(--harbour);
+  border-radius: 2px;
+}
+.units {
+  display: flex;
+}
+.units button {
+  font: inherit;
+  min-width: 52px;
+  min-height: 50px;
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+  color: var(--harbour);
+  cursor: pointer;
+}
+.units button[aria-pressed="true"] {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--seaglass);
+}
+.hint {
+  font-size: 14px;
+  color: var(--teal);
+}
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+.check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--teal);
+}
+.howto summary {
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+.howto ol {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+  font-size: 15px;
+}
+.review {
+  background: var(--porcelain);
+  border: 1px solid var(--line);
+  padding: 28px;
+  display: grid;
+  gap: 18px;
+}
+.review h2 {
+  font-size: 28px;
+}
+.review dl {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.review dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+.review dt {
+  color: var(--muted);
+}
+.review dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+}
